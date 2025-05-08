@@ -36,7 +36,6 @@ always @(posedge sys_clk or negedge sys_rst_n)
 begin
 	if (!sys_rst_n)
 	  begin
-		//tx <= 1;   
 		led <= 6'b111111; // all LEDs are off this way on the Tang Nano
 		tx_start <= 0; 
 		tx_data <= 8'h00; // to standarize the use of this variable as in ASCII format 
