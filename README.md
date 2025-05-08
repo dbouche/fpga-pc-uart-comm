@@ -14,3 +14,6 @@ The folders are distributed like this:
 * constraints/ : have the cst file to arrange the ports of the FPGA with the correct pin location and voltage bank needed
 * python/ : have the pyserial script to communicate via serial with the USB connected to the FPGA
 
+## Python
+The code was run by using Python on Visual Studio Code. In case of not having previously install the serial communication for Python, type on the terminal line: **pip install pyserial **
+Also in case of not knowing which communication port is used by the PC, check the code on **python/check_comm** to know which to use (i.e., COMM4). 
