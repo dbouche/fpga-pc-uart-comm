@@ -16,4 +16,4 @@ The folders are distributed like this:
 
 ## Python
 The code was run by using Python on Visual Studio Code. In case of not having previously install the serial communication for Python, type on the terminal line: **pip install pyserial**.
-Also in case of not knowing which communication port is used by the PC, check the code on **python/check_comm** to know which to use (i.e., COM4). 
+Also in case of not knowing which communication port is used by the PC, check the code on **python/check_com** to know which to use (i.e., COM4). 
