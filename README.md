@@ -2,7 +2,7 @@
 
 ## Project
 The purpose of this project is to communicate an FPGA via UART protocol communication with a PC in this case. It is able to communicate two-ways using a python script on VS Code where it allows the user to enter a character to be sent and also displays a byte sent from the FPGA: 
-* Send data to the FPGA: it would turn on a specific pattern of LEDs depending on the input byte on the keyboard + Enter (i.e., 'F' turns one LED, 'G' turns two LEDs)
+* Send data to the FPGA: it would turn on the first LED for a brief pulse depending on the pulse rate sent from the host (i.e., 'A' 1ms pulse width, 'B' 2ms pulse width, 'C' 5ms pulse width, 'D' 10ms pulse width
 * Receive data from the FPGA: the byte sent by the FPGA will be able to be shown on screen
 
 ## FPGA
