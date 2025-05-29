@@ -1,7 +1,6 @@
 //Tx
 module uart_tx #(parameter  BAUDRATE = 115200, 
-                            CLOCK_FREQ = 27000000,
-                            BAUD_TICKS = CLOCK_FREQ / BAUDRATE) 
+                            CLOCK_FREQ = 27000000)
 (
     input clock,          // clk input
     input n_reset,        // reset input
@@ -15,6 +14,9 @@ module uart_tx #(parameter  BAUDRATE = 115200,
 reg [15:0] baud_counter; 
 reg [3:0] bit_idx;
 reg [9:0] tx_shift; // [9] = stop bit, [8:1] = data[0:7], [0] = start bit
+
+// Baud period
+localparam BAUD_TICKS = CLOCK_FREQ / BAUDRATE;
 
 // State machine
 reg [1:0] state;
@@ -52,13 +54,14 @@ begin
               end
             SEND:
               begin
-                if (baud_counter >= BAUD_TICKS) 
+                if (baud_counter > BAUD_TICKS - 1'b1) 
                   begin // Start-block: sending each bit during the right period
-                    baud_counter <= 0;
-                    tx <= tx_shift[bit_idx];
-                    bit_idx <= bit_idx + 1'b1;
-                    if (bit_idx == 9) 
+                    if (bit_idx < 10)                    
+                        tx <= tx_shift[bit_idx];                    
+                    else 
                         state <= DONE;
+                    baud_counter <= 0;    
+                    bit_idx <= bit_idx + 1'b1;  
                   end // End-block: sending each bit during the right period
                 else
                     baud_counter <= baud_counter + 1'b1;
