@@ -13,6 +13,7 @@ The folders are distributed like this:
 * src/ : all the source files for the design Verilog file
 * constraints/ : have the cst file to arrange the ports of the FPGA with the correct pin location and voltage bank needed
 * python/ : have the pyserial script to communicate via serial with the USB connected to the FPGA
+* testbench/ : it's for simulation purposes only, not needed for the configuration on the Tang Nano 9K. It was created using SystemVerilog
 
 ## Python
 The code was run by using Python on Visual Studio Code. In case of not having previously install the serial communication for Python, type on the terminal line: **pip install pyserial**.
